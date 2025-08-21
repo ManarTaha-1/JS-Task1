@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Task 1</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .container {
+            margin-top:20px ;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 800px;
+        }
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+            color: rgb(60, 0, 120);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        input{
+            width: 700px;
+            padding: 20px;
+            margin: 10px 0;
+            border: 1px solid rgb(225, 225, 225);
+            border-radius: 5px;
+            font-size: 16px;
+            text-align: right;
+            direction: rtl;
+        }
+        input:focus{
+            border: 2px solid rgb(60, 0, 120);
+            outline: none;
+        }
+        .title h1 {
+            font-size: 45px;
+            font-weight: bold;
+        }
+        button {
+            width: 750px;
+            padding: 20px;
+            font-size: 20px;
+            margin: 15px 0;
+            border: 1px solid rgb(225, 225, 225);
+            border-radius: 5px;
+            background-color: rgb(60, 0, 120);
+            color: white;
+            transition: 0.4s ease-in-out;
+            cursor: pointer;
+                }
+        button:hover {
+            margin-top: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>أدخل بياناتك</h1>
+        </div>
+        <form action="">
+            <input type="text" placeholder="اسمك" name="username" required>
+            <input type="number" placeholder="عمرك" name="age" required>
+            <input type="text" placeholder="هوايتك" name="hobby" required>
+            <button type="submit">اعرض الرسالة</button>
+
+        </form>
+    </div>
+    <div class="message"></div>
+</body>
+<script>
+    const form = document.querySelector('form');
+    let container = document.querySelector('body');
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const username = form.username.value;
+        const age = form.age.value;
+        const hobby = form.hobby.value;
+        let message = document.querySelector('.message');
+        message.innerHTML += `<p>مرحبًا ${username}!\nعمرك ${age} سنة وهوايتك هي ${hobby}.</p>`;
+        message.style.backgroundColor = ' rgb(144 241 253)';
+        message.style.padding = '20px';
+        message.style.marginTop = '20px';
+        message.style.textAlign = 'right';
+        message.style.direction = 'rtl';
+        message.style.width = '700px';
+    });
+</script>
+</html>
